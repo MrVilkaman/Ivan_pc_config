@@ -1,0 +1,6 @@
+<resources>
+	<string name="app_name">Pc Config</string>
+	<string name="viewer_delete_btn">Удалить</string>
+	<string name="viewer_add_btn">Добавить</string>
+	<string name="viewer_edit_btn">Изменить</string>
+</resources>

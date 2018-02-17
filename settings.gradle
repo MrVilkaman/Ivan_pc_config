@@ -1,0 +1,23 @@
+include ':app'
+
+include ':cleanLib'
+project(':cleanLib').projectDir= new File(getExternalModuleDir(false))
+
+include ':testutils'
+project(':testutils').projectDir= new File(getExternalModuleDir(true))
+
+
+def getExternalModuleDir(Boolean isTest) {
+    Properties properties = new Properties()
+    properties.load(new File(rootDir.absolutePath + "/local.properties").newDataInputStream())
+    def externalModuleDir = properties.getProperty('cleanLib.dir', null)
+    if (externalModuleDir == null) {
+        throw new GradleException(
+                "Clean location not found. Define location with cleanLib.dir in the local.properties file!")
+    }
+    if(isTest){
+        return externalModuleDir+"/testutils"
+    }else{
+        return externalModuleDir+"/core"
+    }
+}

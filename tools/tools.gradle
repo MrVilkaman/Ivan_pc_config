@@ -1,0 +1,4 @@
+apply from: "$project.rootDir/tools/dependencies.gradle"
+//apply from: "$project.rootDir/tools/artifacts.gradle"
+
+
