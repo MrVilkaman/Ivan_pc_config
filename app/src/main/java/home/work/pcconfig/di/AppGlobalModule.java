@@ -21,7 +21,8 @@ abstract class AppGlobalModule {
             ThrowableModule.class,
             ToolbarEmptyModule.class,
             DrawerEmptyModule.class,
-            ViewerModule.class}
+            ViewerModule.class,
+            ViewerModule.Binder.class}
     )
-   abstract ViewerActivity viewerActivityInjector();
+    abstract ViewerActivity viewerActivityInjector();
 }

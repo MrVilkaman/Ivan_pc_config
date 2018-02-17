@@ -3,4 +3,5 @@
 	<string name="viewer_delete_btn">Удалить</string>
 	<string name="viewer_add_btn">Добавить</string>
 	<string name="viewer_edit_btn">Изменить</string>
+	<string name="not_fount_orders">Текущих заказов нет</string>
 </resources>
