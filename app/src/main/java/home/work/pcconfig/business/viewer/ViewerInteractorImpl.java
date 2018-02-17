@@ -12,11 +12,13 @@ import io.reactivex.Observable;
 public class ViewerInteractorImpl implements ViewerInteractor {
 
     @Inject
-    public ViewerInteractorImpl() {
+    ViewerInteractorImpl() {
     }
 
     @Override
     public Observable<List<OrdersItem>> observeOrders() {
-        return Observable.just(Arrays.asList(new OrdersItem()));
+        final OrdersItem ordersItem = new OrdersItem(1, "Asus Roq", 9, "Nvidia GTX 1080Ti", 32, 1025, true, true);
+        final OrdersItem ordersItem2 = new OrdersItem(1, "Asus Roq", 9, "Nvidia GTX 1080Ti", 32, 1025, true, true);
+        return Observable.just(Arrays.asList(ordersItem,ordersItem2));
     }
 }

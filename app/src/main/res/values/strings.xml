@@ -4,4 +4,14 @@
 	<string name="viewer_add_btn">Добавить</string>
 	<string name="viewer_edit_btn">Изменить</string>
 	<string name="not_fount_orders">Текущих заказов нет</string>
+
+	<string name="number_format">Заявка №%d</string>
+	<string name="cpu_intel_core_i_format">CPU: Intel Core i%d</string>
+	<string name="gpu_format">GPU: %s</string>
+	<string name="ram_format">RAM: %d Gb</string>
+	<string name="motherboard_format">Материнская плата: %s </string>
+	<string name="storage_format">Накопитель: %s %dGb</string>
+	<string name="storage_ssd">SSD</string>
+	<string name="storage_hhd">HDD</string>
+	<string name="gaming_edition">Игровая комплектация</string>
 </resources>

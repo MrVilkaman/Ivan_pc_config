@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="order_vh_side_padding">16dp</dimen>
+	<dimen name="order_vh_padding">8dp</dimen>
+	<dimen name="order_vh_padding_div">4dp</dimen>
+</resources>
