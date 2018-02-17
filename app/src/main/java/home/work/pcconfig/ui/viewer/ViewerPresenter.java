@@ -8,7 +8,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import home.work.pcconfig.business.models.OrdersItem;
+import home.work.pcconfig.business.models.OrderItem;
 import home.work.pcconfig.business.viewer.ViewerInteractor;
 import home.work.pcconfig.ui.global.ScreenKeys;
 import ru.terrakok.cicerone.Router;
@@ -42,10 +42,10 @@ class ViewerPresenter extends BasePresenter<ViewerView> {
 
     }
 
-    private static class OrdersSubscriber extends ViewSubscriber<ViewerView, List<OrdersItem>> {
+    private static class OrdersSubscriber extends ViewSubscriber<ViewerView, List<OrderItem>> {
 
         @Override
-        public void onNext(List<OrdersItem> ordersItems) {
+        public void onNext(List<OrderItem> ordersItems) {
             if (ordersItems.isEmpty()) {
                 view().showEmptyState();
             }else {

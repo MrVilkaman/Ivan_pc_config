@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.github.mrvilkaman.presentationlayer.resolution.BaseNavigator;
 
 import home.work.pcconfig.ui.detail.EditOrderActivity;
+import ru.terrakok.cicerone.commands.Command;
 
 import static home.work.pcconfig.ui.global.ScreenKeys.KEY_NEW_ORDER;
 
@@ -44,5 +45,10 @@ public class GlobalNavigator extends BaseNavigator {
     @Override
     protected Fragment createFragment(String screenKey, Object data) {
         return null;
+    }
+
+    @Override
+    public void applyCommand(@Nullable Command command) {
+        super.applyCommand(command);
     }
 }

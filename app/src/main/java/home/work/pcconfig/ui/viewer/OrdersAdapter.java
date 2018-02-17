@@ -17,9 +17,9 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import home.work.pcconfig.R;
-import home.work.pcconfig.business.models.OrdersItem;
+import home.work.pcconfig.business.models.OrderItem;
 
-class OrdersAdapter extends MySimpleBaseAdapter<OrdersItem, OrdersAdapter.OrdersVH> {
+class OrdersAdapter extends MySimpleBaseAdapter<OrderItem, OrdersAdapter.OrdersVH> {
 
     @Inject
     public OrdersAdapter() {
@@ -35,7 +35,7 @@ class OrdersAdapter extends MySimpleBaseAdapter<OrdersItem, OrdersAdapter.Orders
         return R.layout.item_order_list_layout;
     }
 
-    public static class OrdersVH extends BaseVH<OrdersItem> {
+    public static class OrdersVH extends BaseVH<OrderItem> {
 
         @BindView(R.id.order_number) TextView number;
         @BindView(R.id.order_main_info) TextView mainInfo;
@@ -47,7 +47,7 @@ class OrdersAdapter extends MySimpleBaseAdapter<OrdersItem, OrdersAdapter.Orders
         }
 
         @Override
-        public void bind(@NonNull OrdersItem item, int position, Set<String> payloads) {
+        public void bind(@NonNull OrderItem item, int position, Set<String> payloads) {
             final Resources resources = itemView.getResources();
             final StringBuilder builder = new StringBuilder();
             number.setText(resources.getString(R.string.number_format, item.getId()));

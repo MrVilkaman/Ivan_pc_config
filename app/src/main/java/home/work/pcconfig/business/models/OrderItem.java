@@ -1,7 +1,7 @@
 package home.work.pcconfig.business.models;
 
 
-public class OrdersItem {
+public class OrderItem {
     private int id;
     private String motherBoard;
     private int cpuInterType;
@@ -11,14 +11,14 @@ public class OrdersItem {
     private boolean ssd;
     private boolean gaming;
 
-    public OrdersItem(int id,
-                      String motherBoard,
-                      int cpuInterType,
-                      String gpu,
-                      int ramSize,
-                      int stogareSize,
-                      boolean ssd,
-                      boolean gaming) {
+    public OrderItem(int id,
+                     String motherBoard,
+                     int cpuInterType,
+                     String gpu,
+                     int ramSize,
+                     int stogareSize,
+                     boolean ssd,
+                     boolean gaming) {
         this.id = id;
         this.motherBoard = motherBoard;
         this.cpuInterType = cpuInterType;

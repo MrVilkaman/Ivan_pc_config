@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.github.mrvilkaman.presentationlayer.utils.ui.UIUtils;
+
 import home.work.pcconfig.R;
 
 public class LineEditView extends FrameLayout {
@@ -38,5 +40,9 @@ public class LineEditView extends FrameLayout {
         if (hint != -1) {
             titleView.setText(hint);
         }
+    }
+
+    public String getValue() {
+        return UIUtils.asString(valueView);
     }
 }

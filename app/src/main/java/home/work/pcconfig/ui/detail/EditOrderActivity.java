@@ -1,18 +1,29 @@
 package home.work.pcconfig.ui.detail;
 
 
+import android.support.annotation.Nullable;
+import android.widget.CheckBox;
+
 import com.github.mrvilkaman.presentationlayer.activities.BaseActivity;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import home.work.pcconfig.R;
+import home.work.pcconfig.ui.detail.views.LineEditView;
 import home.work.pcconfig.ui.detail.views.LinePickerView;
 
 public class EditOrderActivity extends BaseActivity<EditPresenter> implements EditView {
 
     @BindView(R.id.order_cpu) LinePickerView cpuPickerView;
     @BindView(R.id.order_ram) LinePickerView ramPickerView;
+    @BindView(R.id.order_matherboard) LineEditView matherboardView;
+    @BindView(R.id.order_gpu) LineEditView gpuView;
+    @BindView(R.id.order_storage_size) LineEditView storageSizeView;
+    @BindView(R.id.order_storage) CheckBox storageView;
+    @BindView(R.id.order_gaming) CheckBox gamingView;
 
     @Override
     protected int getActivityLayoutResourceID() {
@@ -27,8 +38,23 @@ public class EditOrderActivity extends BaseActivity<EditPresenter> implements Ed
         ramPickerView.bind(R.array.rams);
     }
 
+    @Override
+    @Inject
+    public void setPresenter(@Nullable EditPresenter presenter) {
+        super.setPresenter(presenter);
+    }
+
     @OnClick(R.id.order_action_btn)
     void onClick(){
-        presenter.doAction();
+        getPresenter().doAction(
+                cpuPickerView.getValue(),
+                ramPickerView.getValue(),
+                matherboardView.getValue(),
+                gpuView.getValue(),
+                storageSizeView.getValue(),
+                storageView.isChecked(),
+                gamingView.isChecked()
+                );
     }
+
 }

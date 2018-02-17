@@ -10,7 +10,7 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 import home.work.pcconfig.di.screens.CommonScreenModule;
-import home.work.pcconfig.di.screens.EditModule;
+import home.work.pcconfig.di.screens.EditOrderModule;
 import home.work.pcconfig.di.screens.ViewerModule;
 import home.work.pcconfig.ui.detail.EditOrderActivity;
 import home.work.pcconfig.ui.viewer.ViewerActivity;
@@ -37,7 +37,8 @@ abstract class AppGlobalModule {
             ToolbarEmptyModule.class,
             DrawerEmptyModule.class,
             CommonScreenModule.class,
-            EditModule.class,}
+            EditOrderModule.class,
+            EditOrderModule.Binder.class,}
     )
     abstract EditOrderActivity viewerEditOrderActivity();
 }

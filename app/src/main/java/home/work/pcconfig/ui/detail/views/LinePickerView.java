@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.github.mrvilkaman.presentationlayer.utils.ui.UIUtils;
+
 import home.work.pcconfig.R;
 
 public class LinePickerView extends FrameLayout {
@@ -49,4 +51,12 @@ public class LinePickerView extends FrameLayout {
         valueView.setAdapter(new ArrayAdapter<>(getContext(), R.layout.order_spinner_item, stringArray));
     }
 
+    public int getValue() {
+        final String s = UIUtils.asString(valueView);
+        if (s.isEmpty()) {
+            return -1;
+        } else {
+            return Integer.parseInt(s);
+        }
+    }
 }

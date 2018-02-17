@@ -20,6 +20,9 @@
 	<string name="order_gpu_hint">Видео карта</string>
 	<string name="order_ram_hint">Оперативная память</string>
 	<string name="order_create_btn">Создать заявку</string>
+	<string name="check_fields">Нужно заполнить все поля!</string>
+	<string name="invalid_ram_field">Не верно введен размер накопителя</string>
+	<string name="success_create">Заявка успешно создана!</string>
 
 	<string-array name="intel_cpus">
 		<item>3</item>

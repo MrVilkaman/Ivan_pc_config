@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import home.work.pcconfig.R;
-import home.work.pcconfig.business.models.OrdersItem;
+import home.work.pcconfig.business.models.OrderItem;
 
 public class ViewerActivity extends BaseActivity<ViewerPresenter> implements ViewerView {
 
@@ -48,7 +48,7 @@ public class ViewerActivity extends BaseActivity<ViewerPresenter> implements Vie
     }
 
     @Override
-    public void bindOrders(List<OrdersItem> ordersItems) {
+    public void bindOrders(List<OrderItem> ordersItems) {
         adapter.setItems(ordersItems);
         UIUtils.changeVisibility(emptyContent, false);
     }
