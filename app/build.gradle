@@ -44,6 +44,8 @@ dependencies {
 
     implementation 'ru.terrakok.cicerone:cicerone:3.0.0'
 
+    implementation 'com.pushtorefresh.storio3:sqlite:3.0.0'
+
     implementation libraries.butterKnife
     annotationProcessor libraries.butterKnifeCompiler
 

@@ -35,7 +35,7 @@
 			android:id="@+id/order_storage_size"
 			style="@style/qwe"
 			android:layout_weight="1"
-			android:hint="@string/order_gpu_hint"/>
+			android:hint="@string/order_storage_hint"/>
 
 		<CheckBox
 			android:id="@+id/order_storage"

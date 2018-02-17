@@ -16,6 +16,8 @@ import home.work.pcconfig.ui.global.App;
         DevModule.class,
         EventBusModule.class,
         CoreProvidersModule.class,
+        ProvidersModule.class,
+        DbModule.class,
         AppGlobalModule.class,
         NavigationModule.class
 })

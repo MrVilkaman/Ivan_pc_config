@@ -60,4 +60,10 @@ public class OrderItem {
     public boolean isGaming() {
         return gaming;
     }
+
+
+    @Override
+    public String toString() {
+        return "OrderItem{" + "id=" + id + ", motherBoard='" + motherBoard + '\'' + ", cpuInterType=" + cpuInterType + ", gpu='" + gpu + '\'' + ", ramSize=" + ramSize + ", stogareSize=" + stogareSize + ", ssd=" + ssd + ", gaming=" + gaming + '}';
+    }
 }
