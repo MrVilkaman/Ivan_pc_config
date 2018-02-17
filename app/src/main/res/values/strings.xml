@@ -14,4 +14,28 @@
 	<string name="storage_ssd">SSD</string>
 	<string name="storage_hhd">HDD</string>
 	<string name="gaming_edition">Игровая комплектация</string>
+
+	<string name="order_matherboard_hint">Материнская плата</string>
+	<string name="order_cpu_hint">CPU: Intel Core i</string>
+	<string name="order_gpu_hint">Видео карта</string>
+	<string name="order_ram_hint">Оперативная память</string>
+	<string name="order_create_btn">Создать заявку</string>
+
+	<string-array name="intel_cpus">
+		<item>3</item>
+		<item>5</item>
+		<item>7</item>
+		<item>9</item>
+	</string-array>
+	<string-array name="rams">
+		<item>1</item>
+		<item>2</item>
+		<item>4</item>
+		<item>8</item>
+		<item>12</item>
+		<item>16</item>
+		<item>32</item>
+		<item>64</item>
+		<item>128</item>
+	</string-array>
 </resources>

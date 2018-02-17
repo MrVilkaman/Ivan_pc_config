@@ -8,6 +8,9 @@ import javax.inject.Inject;
 public class EditPresenter extends BasePresenter<EditView> {
 
     @Inject
-    public EditPresenter() {
+    EditPresenter() {
+    }
+
+    void doAction() {
     }
 }

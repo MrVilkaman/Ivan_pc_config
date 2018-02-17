@@ -8,9 +8,36 @@
 		<item name="colorAccent">@color/colorAccent</item>
 	</style>
 
+	<style name="Button" parent="Base.Widget.AppCompat.Button.Colored">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+
+
 	<style name="ButtonViewer" parent="Base.Widget.AppCompat.Button.Colored">
 		<item name="android:layout_weight">1</item>
 		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+
+
+	<style name="OrderEdit_Checkbox">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+
+	<style name="OrderEdit_Input">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+
+	<style name="OrderEdit_Input.picker">
+		<item name="android:focusableInTouchMode">false</item>
+		<item name="android:focusable">false</item>
+	</style>
+
+	<style name="qwe">
+		<item name="android:layout_width">match_parent</item>
 		<item name="android:layout_height">wrap_content</item>
 	</style>
 
