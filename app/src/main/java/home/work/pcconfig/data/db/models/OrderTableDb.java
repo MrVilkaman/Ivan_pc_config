@@ -3,6 +3,8 @@ package home.work.pcconfig.data.db.models;
 
 import android.support.annotation.NonNull;
 
+import com.pushtorefresh.storio3.sqlite.queries.Query;
+
 public class OrderTableDb {
 
     public static final String TABLE = "OrderTableDb";
@@ -15,6 +17,10 @@ public class OrderTableDb {
     public static final String COLUME_STOGARE_SIZE = "stogareSize";
     public static final String COLUME_SSD = "ssd";
     public static final String COLUME_GAMING = "gaming";
+
+    public static Query getAllQuery() {
+        return Query.builder().table(TABLE).build();
+    }
 
     //@formatter:off
 	@NonNull
