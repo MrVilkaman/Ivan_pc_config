@@ -42,7 +42,7 @@ dependencies {
     annotationProcessor libraries.daggerAndroidPprocessor
     implementation libraries.daggerAndroidSupport
 
-    implementation 'ru.terrakok.cicerone:cicerone:2.1.0'
+    implementation 'ru.terrakok.cicerone:cicerone:3.0.0'
 
     implementation libraries.butterKnife
     annotationProcessor libraries.butterKnifeCompiler

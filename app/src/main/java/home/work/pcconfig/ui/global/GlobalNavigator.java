@@ -1,6 +1,7 @@
-package home.work.pcconfig.ui.viewer;
+package home.work.pcconfig.ui.global;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,9 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.github.mrvilkaman.presentationlayer.resolution.BaseNavigator;
 
-public class ViewerNavigator extends BaseNavigator {
+import home.work.pcconfig.ui.detail.EditOrderActivity;
 
-    public ViewerNavigator(@Nullable AppCompatActivity activity,
+import static home.work.pcconfig.ui.global.ScreenKeys.KEY_NEW_ORDER;
+
+public class GlobalNavigator extends BaseNavigator {
+
+    public GlobalNavigator(@Nullable AppCompatActivity activity,
                            @Nullable int containerId) {
         super(activity, containerId, null, null);
     }
@@ -28,7 +33,11 @@ public class ViewerNavigator extends BaseNavigator {
     }
 
     @Override
-    protected Intent createActivityIntent(String screenKey, Object data) {
+    protected Intent createActivityIntent(Context context, String screenKey, Object data) {
+        switch (screenKey) {
+            case KEY_NEW_ORDER:
+                return new Intent(context, EditOrderActivity.class);
+        }
         return null;
     }
 

@@ -10,14 +10,19 @@ import javax.inject.Inject;
 
 import home.work.pcconfig.business.models.OrdersItem;
 import home.work.pcconfig.business.viewer.ViewerInteractor;
+import home.work.pcconfig.ui.global.ScreenKeys;
+import ru.terrakok.cicerone.Router;
 
 class ViewerPresenter extends BasePresenter<ViewerView> {
 
     private ViewerInteractor viewerInteractor;
+    private Router router;
+
 
     @Inject
-    ViewerPresenter(ViewerInteractor viewerInteractor) {
+    ViewerPresenter(ViewerInteractor viewerInteractor, Router router) {
         this.viewerInteractor = viewerInteractor;
+        this.router = router;
     }
 
     @Override
@@ -30,7 +35,7 @@ class ViewerPresenter extends BasePresenter<ViewerView> {
     }
 
     void addRow() {
-
+        router.navigateTo(ScreenKeys.KEY_NEW_ORDER);
     }
 
     void editRow() {
