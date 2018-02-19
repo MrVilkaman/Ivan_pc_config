@@ -40,6 +40,11 @@ public class LineEditView extends FrameLayout {
         if (hint != -1) {
             titleView.setText(hint);
         }
+
+        int type = attrs.getAttributeIntValue(xmlns, "inputType",-1);
+        if (type != -1) {
+            valueView.setInputType(type);
+        }
     }
 
     public String getValue() {
