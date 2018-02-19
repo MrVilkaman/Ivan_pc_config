@@ -21,9 +21,11 @@
 	<string name="order_ram_hint">Оперативная память</string>
 	<string name="order_storage_hint">Накопитель</string>
 	<string name="order_create_btn">Создать заявку</string>
+	<string name="order_update_btn">Обновить заявку</string>
 	<string name="check_fields">Нужно заполнить все поля!</string>
 	<string name="invalid_ram_field">Не верно введен размер накопителя</string>
 	<string name="success_create">Заявка успешно создана!</string>
+	<string name="success_update">Заявка успешно обновлена!</string>
 	<string name="error_no_selection">Запись не выбрана!</string>
 
 	<string-array name="intel_cpus">

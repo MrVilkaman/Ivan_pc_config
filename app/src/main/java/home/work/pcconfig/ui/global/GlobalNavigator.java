@@ -37,9 +37,9 @@ public class GlobalNavigator extends BaseNavigator {
     protected Intent createActivityIntent(Context context, String screenKey, Object data) {
         switch (screenKey) {
             case KEY_NEW_ORDER:
-                return new Intent(context, EditOrderActivity.class);
+                return EditOrderActivity.newIntent(context);
             case KEY_UPDATE_ORDER:
-                return new Intent(context, EditOrderActivity.class);
+                return EditOrderActivity.updateIntent(context,(int) data);
         }
         return null;
     }

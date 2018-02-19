@@ -11,6 +11,7 @@ import home.work.pcconfig.business.models.OrderItem;
 import home.work.pcconfig.data.db.models.OrderTableDb;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Completable;
+import io.reactivex.Maybe;
 import io.reactivex.Observable;
 
 public class OrdersDpImpl implements OrdersDp {
@@ -24,14 +25,13 @@ public class OrdersDpImpl implements OrdersDp {
 
     @Override
     public Completable saveOrder(OrderItem orderItem) {
-        return db.put().object(orderItem)
-                .prepare()
-                .asRxCompletable();
+        return db.put().object(orderItem).prepare().asRxCompletable();
     }
 
     @Override
     public Observable<List<OrderItem>> observeOrders() {
-        return db.get().listOfObjects(OrderItem.class)
+        return db.get()
+                .listOfObjects(OrderItem.class)
                 .withQuery(OrderTableDb.getAllQuery())
                 .prepare()
                 .asRxFlowable(BackpressureStrategy.LATEST)
@@ -39,9 +39,12 @@ public class OrdersDpImpl implements OrdersDp {
     }
 
     @Override
+    public Maybe<OrderItem> getOrderById(int id) {
+        return db.get().object(OrderItem.class).withQuery(OrderTableDb.getByIdQuery(id)).prepare().asRxMaybe();
+    }
+
+    @Override
     public Completable deleteOrderById(int id) {
-        return db.delete().byQuery(OrderTableDb.deleteOrderById(id))
-                .prepare()
-                .asRxCompletable();
+        return db.delete().byQuery(OrderTableDb.deleteOrderById(id)).prepare().asRxCompletable();
     }
 }

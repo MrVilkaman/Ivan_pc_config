@@ -23,6 +23,10 @@ public class OrderTableDb {
         return Query.builder().table(TABLE).build();
     }
 
+    public static Query getByIdQuery(int id) {
+        return Query.builder().table(TABLE).where(ID+" = ?").whereArgs(id).build();
+    }
+
     public static DeleteQuery deleteOrderById(int id) {
         return DeleteQuery.builder().table(TABLE).where(ID+" = ?").whereArgs(id).build();
     }

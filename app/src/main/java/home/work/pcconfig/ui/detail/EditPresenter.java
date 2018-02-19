@@ -17,11 +17,26 @@ public class EditPresenter extends BasePresenter<EditView> {
 
     OrderInteractor interactor;
     Router router;
+    private boolean isUpdateMode;
 
     @Inject
     EditPresenter(OrderInteractor interactor, Router router) {
         this.interactor = interactor;
         this.router = router;
+    }
+
+    @Override
+    public void onViewAttached() {
+        super.onViewAttached();
+
+        subscribeUI(interactor.loadOrderItem(),new ViewSubscriber<EditView, OrderItem>(){
+            @Override
+            public void onNext(OrderItem orderItem) {
+                isUpdateMode = true;
+                view().showUpdateState();
+                view().fillFields(orderItem);
+            }
+        });
     }
 
     void doAction(int cpu,
@@ -51,20 +66,26 @@ public class EditPresenter extends BasePresenter<EditView> {
         }
 
         final OrderItem orderItem = new OrderItem(-1, matherboard, cpu, gpu, ram, storage, isSsd, isGamingViewChecked);
-        subscribeUI(interactor.createOrUpdateOreder(orderItem), new CreateSubscriber(router));
+        subscribeUI(interactor.createOrUpdateOrder(orderItem), new CreateSubscriber(router,isUpdateMode));
     }
 
     private class CreateSubscriber extends ViewSubscriber<EditView, Object> {
         private final Router router;
+        private final boolean isUpdateMode;
 
-        public CreateSubscriber(Router router) {
+        CreateSubscriber(Router router, boolean isUpdateMode) {
             this.router = router;
+            this.isUpdateMode = isUpdateMode;
         }
 
         @Override
         public void onComplete() {
             super.onComplete();
-            uiResolver().showToast(R.string.success_create);
+            if (isUpdateMode) {
+                uiResolver().showToast(R.string.success_update);
+            }else {
+                uiResolver().showToast(R.string.success_create);
+            }
             router.exit();
         }
     }

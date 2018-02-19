@@ -59,4 +59,8 @@ public class LinePickerView extends FrameLayout {
             return Integer.parseInt(s);
         }
     }
+
+    public void setValue(String text) {
+        valueView.setText(text);
+    }
 }

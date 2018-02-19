@@ -45,4 +45,9 @@ public class LineEditView extends FrameLayout {
     public String getValue() {
         return UIUtils.asString(valueView);
     }
+
+
+    public void setValue(String text) {
+        valueView.setText(text);
+    }
 }
