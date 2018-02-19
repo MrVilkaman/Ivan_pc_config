@@ -3,6 +3,7 @@ package home.work.pcconfig.data.db.models;
 
 import android.support.annotation.NonNull;
 
+import com.pushtorefresh.storio3.sqlite.queries.DeleteQuery;
 import com.pushtorefresh.storio3.sqlite.queries.Query;
 
 public class OrderTableDb {
@@ -20,6 +21,10 @@ public class OrderTableDb {
 
     public static Query getAllQuery() {
         return Query.builder().table(TABLE).build();
+    }
+
+    public static DeleteQuery deleteOrderById(int id) {
+        return DeleteQuery.builder().table(TABLE).where(ID+" = ?").whereArgs(id).build();
     }
 
     //@formatter:off

@@ -13,11 +13,11 @@ import home.work.pcconfig.ui.detail.EditOrderActivity;
 import ru.terrakok.cicerone.commands.Command;
 
 import static home.work.pcconfig.ui.global.ScreenKeys.KEY_NEW_ORDER;
+import static home.work.pcconfig.ui.global.ScreenKeys.KEY_UPDATE_ORDER;
 
 public class GlobalNavigator extends BaseNavigator {
 
-    public GlobalNavigator(@Nullable AppCompatActivity activity,
-                           @Nullable int containerId) {
+    public GlobalNavigator(@Nullable AppCompatActivity activity, @Nullable int containerId) {
         super(activity, containerId, null, null);
     }
 
@@ -37,6 +37,8 @@ public class GlobalNavigator extends BaseNavigator {
     protected Intent createActivityIntent(Context context, String screenKey, Object data) {
         switch (screenKey) {
             case KEY_NEW_ORDER:
+                return new Intent(context, EditOrderActivity.class);
+            case KEY_UPDATE_ORDER:
                 return new Intent(context, EditOrderActivity.class);
         }
         return null;

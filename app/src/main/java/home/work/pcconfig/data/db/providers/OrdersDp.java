@@ -12,4 +12,6 @@ public interface OrdersDp {
     Completable saveOrder(OrderItem orderItem);
 
     Observable<List<OrderItem>> observeOrders();
+
+    Completable deleteOrderById(int id);
 }

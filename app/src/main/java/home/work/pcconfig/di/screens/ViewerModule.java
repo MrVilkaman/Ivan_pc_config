@@ -10,6 +10,8 @@ import dagger.Module;
 import dagger.Provides;
 import home.work.pcconfig.business.viewer.ViewerInteractor;
 import home.work.pcconfig.business.viewer.ViewerInteractorImpl;
+import home.work.pcconfig.ui.viewer.GetSelectionHelper;
+import home.work.pcconfig.ui.viewer.OrdersAdapter;
 import home.work.pcconfig.ui.viewer.ViewerActivity;
 
 @Module
@@ -27,5 +29,8 @@ public class ViewerModule {
 
         @Binds
         ViewerInteractor interacor(ViewerInteractorImpl interactor);
+
+        @Binds
+        GetSelectionHelper getSelectionHelper(OrdersAdapter adapter);
     }
 }

@@ -22,4 +22,9 @@ public class ViewerInteractorImpl implements ViewerInteractor {
     public Observable<List<OrderItem>> observeOrders() {
        return ordersDp.observeOrders();
     }
+
+    @Override
+    public void deleteOrderById(int id) {
+        ordersDp.deleteOrderById(id).subscribe();
+    }
 }

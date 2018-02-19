@@ -8,4 +8,6 @@ import io.reactivex.Observable;
 
 public interface ViewerInteractor {
     Observable<List<OrderItem>> observeOrders();
+
+    void deleteOrderById(int id);
 }

@@ -37,4 +37,11 @@ public class OrdersDpImpl implements OrdersDp {
                 .asRxFlowable(BackpressureStrategy.LATEST)
                 .toObservable();
     }
+
+    @Override
+    public Completable deleteOrderById(int id) {
+        return db.delete().byQuery(OrderTableDb.deleteOrderById(id))
+                .prepare()
+                .asRxCompletable();
+    }
 }

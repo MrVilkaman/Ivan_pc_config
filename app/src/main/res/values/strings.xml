@@ -24,6 +24,7 @@
 	<string name="check_fields">Нужно заполнить все поля!</string>
 	<string name="invalid_ram_field">Не верно введен размер накопителя</string>
 	<string name="success_create">Заявка успешно создана!</string>
+	<string name="error_no_selection">Запись не выбрана!</string>
 
 	<string-array name="intel_cpus">
 		<item>3</item>
