@@ -8,7 +8,5 @@ import java.util.List;
 import home.work.pcconfig.business.models.OrderItem;
 
 public interface ViewerView extends BaseView {
-    void showEmptyState();
-
     void bindOrders(List<OrderItem> ordersItems);
 }

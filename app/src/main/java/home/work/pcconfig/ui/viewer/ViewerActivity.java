@@ -43,14 +43,9 @@ public class ViewerActivity extends BaseActivity<ViewerPresenter> implements Vie
     }
 
     @Override
-    public void showEmptyState() {
-        UIUtils.changeVisibility(emptyContent, true);
-    }
-
-    @Override
     public void bindOrders(List<OrderItem> ordersItems) {
         adapter.setItems(ordersItems);
-        UIUtils.changeVisibility(emptyContent, false);
+        UIUtils.changeVisibility(emptyContent, ordersItems.isEmpty());
     }
 
     @OnClick(R.id.viewer_delete_btn)

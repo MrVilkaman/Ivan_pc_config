@@ -67,11 +67,7 @@ class ViewerPresenter extends BasePresenter<ViewerView> {
 
         @Override
         public void onNext(List<OrderItem> ordersItems) {
-            if (ordersItems.isEmpty()) {
-                view().showEmptyState();
-            }else {
-                view().bindOrders(ordersItems);
-            }
+            view().bindOrders(ordersItems);
         }
     }
 
