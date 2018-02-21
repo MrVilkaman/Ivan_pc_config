@@ -1,10 +1,10 @@
 include ':app'
 
-include ':cleanLib'
-project(':cleanLib').projectDir= new File(getExternalModuleDir(false))
-
-include ':testutils'
-project(':testutils').projectDir= new File(getExternalModuleDir(true))
+//include ':cleanLib'
+//project(':cleanLib').projectDir= new File(getExternalModuleDir(false))
+//
+//include ':testutils'
+//project(':testutils').projectDir= new File(getExternalModuleDir(true))
 
 
 def getExternalModuleDir(Boolean isTest) {

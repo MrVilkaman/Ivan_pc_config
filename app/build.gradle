@@ -28,6 +28,7 @@ android {
 }
 
 configurations.all {
+//    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
     resolutionStrategy {
         // Force our version of support-annotations, we have a conflict between app and androidTest dependency resolution.
         force libraries.supportAnnotations
@@ -49,8 +50,8 @@ dependencies {
     implementation libraries.butterKnife
     annotationProcessor libraries.butterKnifeCompiler
 
-    //    compile libraries.cleanbase
-    implementation project(path: ':cleanLib')
+    api "com.github.MrVilkaman:cleanbase:dev_2-SNAPSHOT"
+//    implementation project(path: ':cleanLib')
 
     testImplementation libraries.mockitoCore
     testImplementation libraries.mockitoInline
