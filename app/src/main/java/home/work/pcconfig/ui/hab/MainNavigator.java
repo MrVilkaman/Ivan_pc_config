@@ -1,4 +1,4 @@
-package home.work.pcconfig.ui.global;
+package home.work.pcconfig.ui.hab;
 
 
 import android.content.Context;
@@ -9,15 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.github.mrvilkaman.presentationlayer.resolution.BaseNavigator;
 
-import home.work.pcconfig.ui.detail.EditOrderActivity;
 import ru.terrakok.cicerone.commands.Command;
 
-import static home.work.pcconfig.ui.global.ScreenKeys.KEY_NEW_ORDER;
-import static home.work.pcconfig.ui.global.ScreenKeys.KEY_UPDATE_ORDER;
+public class MainNavigator extends BaseNavigator {
 
-public class GlobalNavigator extends BaseNavigator {
-
-    public GlobalNavigator(@Nullable AppCompatActivity activity, @Nullable int containerId) {
+    public MainNavigator(@Nullable AppCompatActivity activity, @Nullable int containerId) {
         super(activity, containerId, null, null);
     }
 
@@ -36,10 +32,6 @@ public class GlobalNavigator extends BaseNavigator {
     @Override
     protected Intent createActivityIntent(Context context, String screenKey, Object data) {
         switch (screenKey) {
-            case KEY_NEW_ORDER:
-                return EditOrderActivity.newIntent(context);
-            case KEY_UPDATE_ORDER:
-                return EditOrderActivity.updateIntent(context,(int) data);
         }
         return null;
     }

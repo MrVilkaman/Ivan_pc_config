@@ -11,7 +11,7 @@ import dagger.Provides;
 import dagger.multibindings.IntKey;
 import dagger.multibindings.IntoMap;
 import home.work.pcconfig.R;
-import home.work.pcconfig.ui.global.GlobalNavigator;
+import home.work.pcconfig.ui.hab.MainNavigator;
 import ru.terrakok.cicerone.Navigator;
 
 @Module
@@ -27,7 +27,7 @@ public class CommonScreenModule {
     @Provides
     @PerActivity
     Navigator provideNavigator(AppCompatActivity activity){
-        return new GlobalNavigator(activity, R.id.content);
+        return new MainNavigator(activity, R.id.content);
     }
 
 }

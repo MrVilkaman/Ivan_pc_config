@@ -13,6 +13,7 @@ import home.work.pcconfig.di.screens.CommonScreenModule;
 import home.work.pcconfig.di.screens.EditOrderModule;
 import home.work.pcconfig.di.screens.ViewerModule;
 import home.work.pcconfig.ui.detail.EditOrderActivity;
+import home.work.pcconfig.ui.hab.HabActivity;
 import home.work.pcconfig.ui.viewer.ViewerActivity;
 
 @Module(includes = AndroidSupportInjectionModule.class)
@@ -41,4 +42,14 @@ abstract class AppGlobalModule {
             EditOrderModule.Binder.class,}
     )
     abstract EditOrderActivity viewerEditOrderActivity();
+
+    @PerActivity
+    @ContributesAndroidInjector(modules = {
+            CommonActivityModule.class,
+            ThrowableModule.class,
+            ToolbarEmptyModule.class,
+            DrawerEmptyModule.class,
+            CommonScreenModule.class}
+    )
+    abstract HabActivity viewerHabActivity();
 }
