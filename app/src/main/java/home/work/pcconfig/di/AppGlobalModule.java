@@ -10,14 +10,11 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 import home.work.pcconfig.di.screens.CommonScreenModule;
-import home.work.pcconfig.di.screens.EditOrderModule;
-import home.work.pcconfig.di.screens.ViewerModule;
-import home.work.pcconfig.ui.detail.EditOrderActivity;
+import home.work.pcconfig.di.screens.HubModule;
 import home.work.pcconfig.ui.hab.HabActivity;
-import home.work.pcconfig.ui.viewer.ViewerActivity;
 
 @Module(includes = AndroidSupportInjectionModule.class)
-abstract class AppGlobalModule {
+interface AppGlobalModule {
 
     @PerActivity
     @ContributesAndroidInjector(modules = {
@@ -25,31 +22,9 @@ abstract class AppGlobalModule {
             ThrowableModule.class,
             ToolbarEmptyModule.class,
             DrawerEmptyModule.class,
-            CommonScreenModule.class,
-            ViewerModule.class,
-            ViewerModule.Binder.class}
+            HubModule.class,
+            CommonScreenModule.class
+    }
     )
-    abstract ViewerActivity viewerActivityInjector();
-
-    @PerActivity
-    @ContributesAndroidInjector(modules = {
-            CommonActivityModule.class,
-            ThrowableModule.class,
-            ToolbarEmptyModule.class,
-            DrawerEmptyModule.class,
-            CommonScreenModule.class,
-            EditOrderModule.class,
-            EditOrderModule.Binder.class,}
-    )
-    abstract EditOrderActivity viewerEditOrderActivity();
-
-    @PerActivity
-    @ContributesAndroidInjector(modules = {
-            CommonActivityModule.class,
-            ThrowableModule.class,
-            ToolbarEmptyModule.class,
-            DrawerEmptyModule.class,
-            CommonScreenModule.class}
-    )
-    abstract HabActivity viewerHabActivity();
+    HabActivity habActivity();
 }

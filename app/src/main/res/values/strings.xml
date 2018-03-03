@@ -1,51 +1,5 @@
 <resources>
 	<string name="app_name">Pc Config</string>
 
-	<string name="not_found_sms">Итория пуста</string>
-
-	<string name="viewer_delete_btn">Удалить</string>
-	<string name="viewer_add_btn">Добавить</string>
-	<string name="viewer_edit_btn">Изменить</string>
-	<string name="not_fount_orders">Текущих заказов нет</string>
-
-	<string name="number_format">Заявка №%d</string>
-	<string name="cpu_intel_core_i_format">CPU: Intel Core i%d</string>
-	<string name="gpu_format">GPU: %s</string>
-	<string name="ram_format">RAM: %d Gb</string>
-	<string name="motherboard_format">Материнская плата: %s </string>
-	<string name="storage_format">Накопитель: %s %dGb</string>
-	<string name="storage_ssd">SSD</string>
-	<string name="storage_hhd">HDD</string>
-	<string name="gaming_edition">Игровая комплектация</string>
-
-	<string name="order_matherboard_hint">Материнская плата</string>
-	<string name="order_cpu_hint">CPU: Intel Core i</string>
-	<string name="order_gpu_hint">Видео карта</string>
-	<string name="order_ram_hint">Оперативная память</string>
-	<string name="order_storage_hint">Накопитель</string>
-	<string name="order_create_btn">Создать заявку</string>
-	<string name="order_update_btn">Обновить заявку</string>
-	<string name="check_fields">Нужно заполнить все поля!</string>
-	<string name="invalid_ram_field">Не верно введен размер накопителя</string>
-	<string name="success_create">Заявка успешно создана!</string>
-	<string name="success_update">Заявка успешно обновлена!</string>
-	<string name="error_no_selection">Запись не выбрана!</string>
-
-	<string-array name="intel_cpus">
-		<item>3</item>
-		<item>5</item>
-		<item>7</item>
-		<item>9</item>
-	</string-array>
-	<string-array name="rams">
-		<item>1</item>
-		<item>2</item>
-		<item>4</item>
-		<item>8</item>
-		<item>12</item>
-		<item>16</item>
-		<item>32</item>
-		<item>64</item>
-		<item>128</item>
-	</string-array>
+	<string name="not_found_sms">Иcтория пуста</string>
 </resources>

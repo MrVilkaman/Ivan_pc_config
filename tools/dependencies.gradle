@@ -5,7 +5,7 @@ ext.versions = [
         compileSdk       : 26,
         buildTools       : '26.0.2',
 
-        dagger           : '2.11',
+        dagger           : '2.14.1',
         rxBus            : '2.0.0',
 
         supportLibs      : '26.0.2',

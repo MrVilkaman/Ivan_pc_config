@@ -50,8 +50,8 @@ dependencies {
     implementation libraries.butterKnife
     annotationProcessor libraries.butterKnifeCompiler
 
-    api "com.github.MrVilkaman:cleanbase:dev_2-SNAPSHOT"
-//    implementation project(path: ':cleanLib')
+//    api "com.github.MrVilkaman:cleanbase:dev_2-SNAPSHOT"
+    implementation project(path: ':cleanLib')
 
     testImplementation libraries.mockitoCore
     testImplementation libraries.mockitoInline

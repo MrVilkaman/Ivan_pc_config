@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.github.mrvilkaman.presentationlayer.resolution.BaseNavigator;
 
+import home.work.pcconfig.ui.global.ScreenKeys;
+import home.work.pcconfig.ui.hab.screen.stream.StreamMessageScreen;
 import ru.terrakok.cicerone.commands.Command;
 
 public class MainNavigator extends BaseNavigator {
@@ -26,18 +28,20 @@ public class MainNavigator extends BaseNavigator {
     @Nullable
     @Override
     protected String getMainScreenKey() {
-        return null;
+        return ScreenKeys.KEY_SMS_LIST;
     }
 
     @Override
     protected Intent createActivityIntent(Context context, String screenKey, Object data) {
-        switch (screenKey) {
-        }
         return null;
     }
 
     @Override
     protected Fragment createFragment(String screenKey, Object data) {
+        switch (screenKey){
+            case ScreenKeys.KEY_SMS_LIST:
+                return StreamMessageScreen.newInstance();
+        }
         return null;
     }
 

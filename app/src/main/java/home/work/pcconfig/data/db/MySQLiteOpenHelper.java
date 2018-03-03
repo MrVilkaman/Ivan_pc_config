@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import home.work.pcconfig.data.db.models.OrderTableDb;
 
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     private static final int INIT = 1;
@@ -20,7 +19,6 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
         try {
             db.beginTransaction();
-            db.execSQL(OrderTableDb.getCreateTableQuery());
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();

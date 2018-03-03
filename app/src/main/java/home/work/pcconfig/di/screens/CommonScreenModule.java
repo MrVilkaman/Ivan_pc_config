@@ -16,13 +16,6 @@ import ru.terrakok.cicerone.Navigator;
 
 @Module
 public class CommonScreenModule {
-    @Provides
-    @IntoMap
-    @IntKey(Integer.MAX_VALUE)
-    @PerActivity
-    INeedActivityViewNotify iNeedActivityViewNotify(){
-        return () -> {};
-    }
 
     @Provides
     @PerActivity
@@ -30,4 +23,11 @@ public class CommonScreenModule {
         return new MainNavigator(activity, R.id.content);
     }
 
+    @Provides
+    @IntoMap
+    @IntKey(Integer.MAX_VALUE)
+    @PerActivity
+    INeedActivityViewNotify iNeedActivityViewNotify(Navigator navigator){
+        return (INeedActivityViewNotify)navigator;
+    }
 }

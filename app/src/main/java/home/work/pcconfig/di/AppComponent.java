@@ -12,13 +12,13 @@ import dagger.Component;
 import home.work.pcconfig.ui.global.App;
 
 @Component(modules = {
+        AppGlobalModule.class,
         AppModule.class,
         DevModule.class,
         EventBusModule.class,
         CoreProvidersModule.class,
         ProvidersModule.class,
         DbModule.class,
-        AppGlobalModule.class,
         NavigationModule.class
 })
 
@@ -27,8 +27,10 @@ public interface AppComponent {
 
     void inject(App app);
 
-    @Component.Builder interface Builder {
+    @Component.Builder
+    interface Builder {
+//        @BindsInstance
         Builder setAppModule(AppModule appModule);
-        public AppComponent build();
+        AppComponent build();
     }
 }
