@@ -23,6 +23,16 @@
 			android:layout_height="wrap_content"/>
 
 		<ImageButton
+			tools:visibility="visible"
+			android:visibility="gone"
+			android:id="@+id/choose_contact_add"
+			android:padding="8dp"
+			android:background="@null"
+			android:src="@android:drawable/ic_input_add"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<ImageButton
 			android:id="@+id/choose_contact"
 			android:padding="8dp"
 			android:background="@null"
