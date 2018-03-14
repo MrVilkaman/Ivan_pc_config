@@ -8,12 +8,37 @@
 	android:orientation="vertical">
 
 
+	<LinearLayout
+		android:padding="8dp"
+
+		android:id="@+id/ll"
+		style="@style/LL.H">
+
+		<EditText
+			android:id="@+id/phonenumber"
+			android:hint="Кому"
+			android:layout_weight="1"
+			android:layout_width="0dp"
+			android:inputType="phone"
+			android:layout_height="wrap_content"/>
+
+		<ImageButton
+			android:id="@+id/choose_contact"
+			android:padding="8dp"
+			android:background="@null"
+			android:src="@android:drawable/ic_menu_search"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+	</LinearLayout>
+
 	<android.support.v7.widget.RecyclerView
 		android:id="@+id/recyclerview"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_above="@+id/linearLayout"
-		android:layout_alignParentTop="true"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:layout_below="@+id/ll"
 		app:layoutManager="LinearLayoutManager">
 	</android.support.v7.widget.RecyclerView>
 
