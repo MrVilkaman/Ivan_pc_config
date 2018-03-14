@@ -3,4 +3,7 @@
 	<dimen name="order_vh_side_padding">16dp</dimen>
 	<dimen name="order_vh_padding">8dp</dimen>
 	<dimen name="order_vh_padding_div">4dp</dimen>
+
+	<dimen name="chat_inputbar_height">48dp</dimen>
+	<dimen name="chat_inputbar_edit_height">40dp</dimen>
 </resources>

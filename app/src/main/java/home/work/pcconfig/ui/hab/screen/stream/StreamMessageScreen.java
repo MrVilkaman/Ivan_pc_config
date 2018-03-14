@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
 import com.github.mrvilkaman.presentationlayer.fragments.core.BaseFragment;
@@ -24,6 +26,8 @@ public class StreamMessageScreen extends BaseFragment<StreamMessagePresenter> im
 
     @BindView(R.id.phonenumber) EditText phoneEdit;
     @BindView(R.id.choose_contact_add) View addContact;
+    @BindView(R.id.chat_input_text) EditText editText;
+    @BindView(R.id.chat_input_send) View iconSend;
 
     public static StreamMessageScreen newInstance() {
         Bundle args = new Bundle();
@@ -43,7 +47,23 @@ public class StreamMessageScreen extends BaseFragment<StreamMessagePresenter> im
         super.onViewCreated(view, savedInstanceState);
 
 
+        editText.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        editText.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_SEND) {
+                onClickSend();
+                return true;
+            }
+            return false;
+        });
+        editText.addTextChangedListener(new MyTextWatcher());
+
         phoneEdit.addTextChangedListener(new HideButtonTextWhater());
+    }
+
+    @OnClick(R.id.chat_input_send)
+    void onClickSend() {
+        getPresenter().sendMessage(UIUtils.asString(phoneEdit),UIUtils.asString(editText));
+        editText.setText("");
     }
 
     @Override
@@ -111,6 +131,25 @@ public class StreamMessageScreen extends BaseFragment<StreamMessagePresenter> im
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             UIUtils.changeVisibility(addContact,s.length() != 0);
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    }
+
+
+    private class MyTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            final boolean show = s.length() != 0;
+            UIUtils.changeVisibility(iconSend, show);
         }
 
         @Override
