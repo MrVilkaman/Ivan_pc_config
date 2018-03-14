@@ -59,6 +59,7 @@ public class StreamMessagePresenter extends BasePresenter<StreamMessageView> {
                             SmsManager smsManager = SmsManager.getDefault();
                             smsManager.sendTextMessage(number, null, text, null, null);
                             uiResolver().showToast(R.string.send_sms_success);
+                            interactor.saveSms(number,text);
                         } catch (Exception ex) {
                             uiResolver().showToast(R.string.cleanbase_simple_text, ex.getMessage());
                             ex.printStackTrace();

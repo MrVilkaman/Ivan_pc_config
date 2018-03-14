@@ -2,6 +2,7 @@ package home.work.pcconfig.di;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.github.mrvilkaman.domainlayer.providers.SchedulersProvider;
@@ -28,5 +29,12 @@ public class DbModule {
     @Singleton
     public SQLiteOpenHelper provideSQLiteOpenHelper(Context context) {
         return new MySQLiteOpenHelper(context);
+    }
+
+
+    @Provides
+    @Singleton
+    public SharedPreferences getSharedPreferences(Context context) {
+        return context.getSharedPreferences("qwer",Context.MODE_PRIVATE);
     }
 }
