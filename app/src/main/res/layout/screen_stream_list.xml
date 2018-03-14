@@ -69,6 +69,17 @@
 		android:layout_gravity="bottom"
 		android:background="#fff"
 		android:minHeight="@dimen/chat_inputbar_height">
+		<ImageView
+			android:id="@+id/chat_input_tamplate"
+			style="@style/InputBarButton"
+			android:src="@android:drawable/ic_input_get" />
+
+		<ImageView
+			android:visibility="gone"
+			tools:visibility="visible"
+			android:id="@+id/chat_input_add"
+			style="@style/InputBarButton"
+			android:src="@android:drawable/ic_input_add" />
 
 		<EditText
 			android:id="@+id/chat_input_text"

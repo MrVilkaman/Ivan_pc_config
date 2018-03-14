@@ -73,8 +73,20 @@ public class StreamMessagePresenter extends BasePresenter<StreamMessageView> {
 
             }
         });
+    }
 
+    public void addToTemplate(String text){
+        interactor.saveTemplate(text);
+        uiResolver().showToast(R.string.template_added);
+    }
 
-
+    public void onClickTemplate() {
+        subscribeUI(interactor.getTemplate(),new ViewSubscriber<StreamMessageView, List<String>>(){
+            @Override
+            public void onNext(List<String> strings) {
+                super.onNext(strings);
+                view().showTemplateDialog(strings);
+            }
+        });
     }
 }

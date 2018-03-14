@@ -12,4 +12,6 @@ public interface StreamMessageView extends BaseView {
     void bindPhone(String number);
 
     void bindSms(List<SmsItem> smsItem);
+
+    void showTemplateDialog(List<String> strings);
 }

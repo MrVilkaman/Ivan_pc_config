@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.mrvilkaman.presentationlayer.fragments.core.BaseFragment;
 import com.github.mrvilkaman.presentationlayer.utils.ui.UIUtils;
 
@@ -35,6 +36,8 @@ public class StreamMessageScreen extends BaseFragment<StreamMessagePresenter> im
     @BindView(R.id.choose_contact_add) View addContact;
     @BindView(R.id.chat_input_text) EditText editText;
     @BindView(R.id.chat_input_send) View iconSend;
+    @BindView(R.id.chat_input_add) View tempAddSend;
+
     @BindView(R.id.recyclerview) RecyclerView recyclerview;
     @Inject SmsAdapter smsAdapter;
 
@@ -77,6 +80,17 @@ public class StreamMessageScreen extends BaseFragment<StreamMessagePresenter> im
         editText.setText("");
     }
 
+
+    @OnClick(R.id.chat_input_tamplate)
+    void onClickTemplate() {
+       getPresenter().onClickTemplate();
+    }
+
+    @OnClick(R.id.chat_input_add)
+    void onClickAddedTemplate() {
+        getPresenter().addToTemplate(UIUtils.asString(editText));
+    }
+
     @Override
     public void bindPhone(String number) {
         phoneEdit.setText(number);
@@ -87,6 +101,11 @@ public class StreamMessageScreen extends BaseFragment<StreamMessagePresenter> im
     public void bindSms(List<SmsItem> smsItem) {
         smsAdapter.setItems(smsItem);
         UIUtils.changeVisibility(emptyView,smsItem.isEmpty());
+    }
+
+    @Override
+    public void showTemplateDialog(List<String> strings) {
+        new MaterialDialog.Builder(getContext()).items(strings).itemsCallback((dialog, itemView, position, text) -> editText.setText(text)).show();
     }
 
     @OnClick(R.id.choose_contact)
@@ -167,6 +186,7 @@ public class StreamMessageScreen extends BaseFragment<StreamMessagePresenter> im
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             final boolean show = s.length() != 0;
             UIUtils.changeVisibility(iconSend, show);
+            UIUtils.changeVisibility(tempAddSend, show);
         }
 
         @Override

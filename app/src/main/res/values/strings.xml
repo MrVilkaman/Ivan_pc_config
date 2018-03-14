@@ -5,4 +5,5 @@
 	<string name="empty_phone_error">Номер телефона не может быть пустым!</string>
 	<string name="send_sms_success">Отправлено!</string>
 	<string name="send_sms_success_permition_denied">Без этого разрешения, нельзя =(</string>
+	<string name="template_added">Текст успешно добавлен в шаблон!</string>
 </resources>
