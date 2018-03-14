@@ -7,17 +7,36 @@ import com.github.mrvilkaman.domainlayer.providers.PermissionManager;
 import com.github.mrvilkaman.presentationlayer.fragments.core.BasePresenter;
 import com.github.mrvilkaman.presentationlayer.subscriber.ViewSubscriber;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import home.work.pcconfig.R;
+import home.work.pcconfig.business.SmsItem;
+import home.work.pcconfig.business.StreamMessageInteractor;
 
 public class StreamMessagePresenter extends BasePresenter<StreamMessageView> {
 
     private final PermissionManager permissionManager;
+    private final StreamMessageInteractor interactor;
 
     @Inject
-    public StreamMessagePresenter(PermissionManager permissionManager) {
+    public StreamMessagePresenter(PermissionManager permissionManager, StreamMessageInteractor interactor) {
         this.permissionManager = permissionManager;
+        this.interactor = interactor;
+    }
+
+    @Override
+    public void onViewAttached() {
+        super.onViewAttached();
+
+        subscribeUI(interactor.observableSms(), new ViewSubscriber<StreamMessageView, List<SmsItem>>(){
+            @Override
+            public void onNext(List<SmsItem> smsItem) {
+                super.onNext(smsItem);
+                view().bindSms(smsItem);
+            }
+        });
     }
 
     public void showSelectedNumber(int type, String number) {

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -17,17 +18,25 @@ import android.widget.EditText;
 import com.github.mrvilkaman.presentationlayer.fragments.core.BaseFragment;
 import com.github.mrvilkaman.presentationlayer.utils.ui.UIUtils;
 
+import java.util.List;
+
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import home.work.pcconfig.R;
+import home.work.pcconfig.business.SmsItem;
 
 public class StreamMessageScreen extends BaseFragment<StreamMessagePresenter> implements StreamMessageView {
 
+    @BindView(R.id.empty_content) View emptyView;
     @BindView(R.id.phonenumber) EditText phoneEdit;
     @BindView(R.id.choose_contact_add) View addContact;
     @BindView(R.id.chat_input_text) EditText editText;
     @BindView(R.id.chat_input_send) View iconSend;
+    @BindView(R.id.recyclerview) RecyclerView recyclerview;
+    @Inject SmsAdapter smsAdapter;
 
     public static StreamMessageScreen newInstance() {
         Bundle args = new Bundle();
@@ -58,6 +67,8 @@ public class StreamMessageScreen extends BaseFragment<StreamMessagePresenter> im
         editText.addTextChangedListener(new MyTextWatcher());
 
         phoneEdit.addTextChangedListener(new HideButtonTextWhater());
+
+        recyclerview.setAdapter(smsAdapter);
     }
 
     @OnClick(R.id.chat_input_send)
@@ -70,6 +81,12 @@ public class StreamMessageScreen extends BaseFragment<StreamMessagePresenter> im
     public void bindPhone(String number) {
         phoneEdit.setText(number);
         UIUtils.changeVisibility(addContact,false);
+    }
+
+    @Override
+    public void bindSms(List<SmsItem> smsItem) {
+        smsAdapter.setItems(smsItem);
+        UIUtils.changeVisibility(emptyView,smsItem.isEmpty());
     }
 
     @OnClick(R.id.choose_contact)

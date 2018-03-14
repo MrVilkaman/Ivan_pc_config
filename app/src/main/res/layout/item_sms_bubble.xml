@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  xmlns:app="http://schemas.android.com/apk/res-auto"
+			  xmlns:tools="http://schemas.android.com/tools"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:layout_gravity="right"
+			  android:layout_marginBottom="@dimen/chat_msg_v_padding"
+			  android:layout_marginLeft="@dimen/chat_msg_side_padding"
+			  android:layout_marginRight="@dimen/chat_msg_side_padding"
+			  android:layout_marginTop="@dimen/chat_msg_v_padding"
+			  android:gravity="right"
+			  android:orientation="vertical">
+
+	<LinearLayout
+		style="@style/LL.V"
+		android:layout_width="wrap_content"
+		android:background="@drawable/chat_bubble_my"
+		android:gravity="right"
+		android:padding="@dimen/chat_text_bubble_padding">
+
+		<TextView
+			android:id="@+id/text_phone"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			tools:text="00:33"/>
+
+		<TextView
+			android:id="@+id/text_msg"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			tools:text="Типо сообщение"/>
+	</LinearLayout>
+
+
+</LinearLayout>

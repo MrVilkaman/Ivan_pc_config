@@ -6,4 +6,9 @@
 
 	<dimen name="chat_inputbar_height">48dp</dimen>
 	<dimen name="chat_inputbar_edit_height">40dp</dimen>
+
+	<dimen name="chat_bubble_corners_radius">8dp</dimen>
+	<dimen name="chat_msg_side_padding">8dp</dimen>
+	<dimen name="chat_msg_v_padding">4dp</dimen>
+	<dimen name="chat_text_bubble_padding">8dp</dimen>
 </resources>
