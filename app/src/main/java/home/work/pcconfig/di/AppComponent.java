@@ -5,6 +5,8 @@ import com.github.mrvilkaman.di.modules.AppModule;
 import com.github.mrvilkaman.di.modules.CoreProvidersModule;
 import com.github.mrvilkaman.di.modules.DevModule;
 import com.github.mrvilkaman.di.modules.EventBusModule;
+import com.github.mrvilkaman.di.modules.ImageLoaderModule;
+import com.github.mrvilkaman.di.modules.NetworkModule;
 
 import javax.inject.Singleton;
 
@@ -15,6 +17,8 @@ import home.work.pcconfig.ui.global.App;
         AppGlobalModule.class,
         AppModule.class,
         DevModule.class,
+        NetworkModule.class,
+        ImageLoaderModule.class,
         EventBusModule.class,
         CoreProvidersModule.class,
         ProvidersModule.class,

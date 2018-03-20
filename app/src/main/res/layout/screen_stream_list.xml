@@ -9,48 +9,48 @@
 
 
 	<LinearLayout
-		android:padding="8dp"
-
 		android:id="@+id/ll"
-		style="@style/LL.H">
+
+		style="@style/LL.H"
+		android:padding="8dp">
 
 		<EditText
 			android:id="@+id/phonenumber"
-			android:hint="Кому"
-			android:layout_weight="1"
 			android:layout_width="0dp"
-			android:inputType="phone"
-			android:layout_height="wrap_content"/>
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:hint="Кому"
+			android:inputType="phone"/>
 
 		<ImageButton
-			tools:visibility="visible"
-			android:visibility="gone"
 			android:id="@+id/choose_contact_add"
-			android:padding="8dp"
-			android:background="@null"
-			android:src="@android:drawable/ic_input_add"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"/>
+			android:layout_height="wrap_content"
+			android:background="@null"
+			android:padding="8dp"
+			android:src="@android:drawable/ic_input_add"
+			android:visibility="gone"
+			tools:visibility="visible"/>
 
 		<ImageButton
 			android:id="@+id/choose_contact"
-			android:padding="8dp"
-			android:background="@null"
-			android:src="@android:drawable/ic_menu_search"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"/>
+			android:layout_height="wrap_content"
+			android:background="@null"
+			android:padding="8dp"
+			android:src="@android:drawable/ic_menu_search"/>
 	</LinearLayout>
 
 	<android.support.v7.widget.RecyclerView
 		android:id="@+id/recyclerview"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_above="@+id/ll3"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentStart="true"
 		android:layout_below="@+id/ll"
-		android:layout_above="@+id/ll2"
-		app:stackFromEnd="true"
-		app:layoutManager="LinearLayoutManager">
+		app:layoutManager="LinearLayoutManager"
+		app:stackFromEnd="true">
 	</android.support.v7.widget.RecyclerView>
 
 	<TextView
@@ -59,6 +59,27 @@
 		android:layout_height="wrap_content"
 		android:layout_centerInParent="true"
 		android:text="@string/not_found_sms"/>
+
+	<LinearLayout
+		android:id="@+id/ll3"
+		style="@style/LL.H"
+		android:layout_above="@+id/ll2"
+		android:gravity="right">
+
+		<ImageView
+			android:id="@+id/image_attach"
+			android:layout_width="128dp"
+			android:layout_height="128dp"
+			android:visibility="visible"
+			tools:visibility="visible"/>
+
+		<Button
+			android:id="@+id/attach_btn"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:text="Прикрепить "/>
+	</LinearLayout>
 
 
 	<LinearLayout
@@ -69,17 +90,18 @@
 		android:layout_gravity="bottom"
 		android:background="#fff"
 		android:minHeight="@dimen/chat_inputbar_height">
+
 		<ImageView
 			android:id="@+id/chat_input_tamplate"
 			style="@style/InputBarButton"
-			android:src="@android:drawable/ic_input_get" />
+			android:src="@android:drawable/ic_input_get"/>
 
 		<ImageView
-			android:visibility="gone"
-			tools:visibility="visible"
 			android:id="@+id/chat_input_add"
 			style="@style/InputBarButton"
-			android:src="@android:drawable/ic_input_add" />
+			android:src="@android:drawable/ic_input_add"
+			android:visibility="gone"
+			tools:visibility="visible"/>
 
 		<EditText
 			android:id="@+id/chat_input_text"
@@ -97,13 +119,13 @@
 			android:paddingBottom="4dp"
 			android:paddingLeft="8dp"
 			android:paddingRight="8dp"
-			android:paddingTop="4dp" />
+			android:paddingTop="4dp"/>
 
 		<ImageView
-			android:visibility="gone"
-			tools:visibility="visible"
 			android:id="@+id/chat_input_send"
 			style="@style/InputBarButton"
-			android:src="@android:drawable/ic_menu_send" />
+			android:src="@android:drawable/ic_menu_send"
+			android:visibility="gone"
+			tools:visibility="visible"/>
 	</LinearLayout>
 </RelativeLayout>

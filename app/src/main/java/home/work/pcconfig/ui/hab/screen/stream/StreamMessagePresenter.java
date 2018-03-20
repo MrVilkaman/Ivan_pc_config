@@ -19,6 +19,7 @@ public class StreamMessagePresenter extends BasePresenter<StreamMessageView> {
 
     private final PermissionManager permissionManager;
     private final StreamMessageInteractor interactor;
+    private String path;
 
     @Inject
     public StreamMessagePresenter(PermissionManager permissionManager, StreamMessageInteractor interactor) {
@@ -44,10 +45,19 @@ public class StreamMessagePresenter extends BasePresenter<StreamMessageView> {
     }
 
     public void sendMessage(String number, String text) {
+
         if (number.isEmpty()) {
             uiResolver().showToast(R.string.empty_phone_error);
             return;
         }
+
+        if (path != null) {
+            view().sendMms(number,text,path);
+            path = number;
+            view().attachImage(null);
+            return;
+        }
+
 
         subscribeUI(permissionManager.request("android.permission.SEND_SMS"),new ViewSubscriber<StreamMessageView,PermissionManager.AnswerPermission>(){
             @Override
@@ -86,6 +96,30 @@ public class StreamMessagePresenter extends BasePresenter<StreamMessageView> {
             public void onNext(List<String> strings) {
                 super.onNext(strings);
                 view().showTemplateDialog(strings);
+            }
+        });
+    }
+
+    public void handleImage(String path) {
+        this.path = path;
+        view().attachImage(path);
+    }
+
+    public void openCamera() {
+        subscribeUI(permissionManager.request("android.permission.WRITE_EXTERNAL_STORAGE"),new ViewSubscriber<StreamMessageView,PermissionManager.AnswerPermission>(){
+            @Override
+            public void onNext(PermissionManager.AnswerPermission permission) {
+                super.onNext(permission);
+                switch (permission) {
+                    case ALLOWED:
+                        view().openCamera();
+                        break;
+                    case DENIED:
+                    case NOT_ASK:
+                        uiResolver().showToast(R.string.send_sms_success_permition_denied);
+                        break;
+                }
+
             }
         });
     }

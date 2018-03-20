@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.github.mrvilkaman.di.PerActivity;
 import com.github.mrvilkaman.di.PerScreen;
+import com.github.mrvilkaman.di.modules.PhotoHelperModule;
 
 import dagger.Binds;
 import dagger.Module;
@@ -19,6 +20,6 @@ public interface HubModule {
     AppCompatActivity provideViewerActivity(HabActivity habActivity);
 
     @PerScreen
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = {PhotoHelperModule.class})
     StreamMessageScreen provideStreamMessageScreen();
 }
